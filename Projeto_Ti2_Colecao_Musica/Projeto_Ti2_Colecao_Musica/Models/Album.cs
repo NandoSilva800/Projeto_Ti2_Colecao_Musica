@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,9 +36,15 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         /// </summary>
         public string Editora { get; set; }
 
-        /// <summary>
-        /// Genero de musica do album
-        /// </summary>
-        public string Genero { get; set; }
+
+        //*******************************************************************
+        //FK para o Genero
+        //*******************************************************************
+        //Para facilitar o programador a criar os controlers as linhas seguintes
+        [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
+        public  int GeneroFK { get; set; }      //FK para Genero np SGBD(SQL)
+        
+        public Generos Genero { get; set; }     //FK para Genero no C#
+        //*******************************************************************
     }
 }
