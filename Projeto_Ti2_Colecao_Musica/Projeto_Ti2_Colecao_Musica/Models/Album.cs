@@ -18,7 +18,7 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         /// <summary>
         /// Duração total de um album
         /// </summary>
-        public int Duracao { get; set; }
+        public string Duracao { get; set; }
 
         /// <summary>
         /// Numero total de faixas de um album
@@ -28,7 +28,7 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         /// <summary>
         /// Ano em que foi editado o album
         /// </summary>
-        public int Ano { get; set; }
+        public string Ano { get; set; }
 
         /// <summary>
         /// Nome da editora que editou o album

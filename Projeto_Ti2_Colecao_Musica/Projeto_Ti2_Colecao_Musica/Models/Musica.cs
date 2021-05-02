@@ -18,12 +18,12 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         /// <summary>
         /// Duração de uma musica
         /// </summary>
-        public int Duracao { get; set; }
+        public string Duracao { get; set; }
 
         /// <summary>
         /// Ano em que foi editada uma musica
         /// </summary>
-        public int Ano { get; set; }
+        public string Ano { get; set; }
 
         /// <summary>
         /// Nome do compositor de uma musica
