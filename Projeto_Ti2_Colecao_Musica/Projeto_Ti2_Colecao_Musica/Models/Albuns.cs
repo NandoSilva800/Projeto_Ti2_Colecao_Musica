@@ -58,26 +58,27 @@ namespace Projeto_Ti2_Colecao_Musica.Models
 
 
 
-        //*******************************************************************
-        //FK para o Genero
-        //*******************************************************************
+        //************************************************************************
+        //FK para Generos
+        //************************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
         [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
-        public  int GeneroFK { get; set; }      //FK para Genero np SGBD(SQL) 
-        public Generos Genero { get; set; }     //FK para Genero no C#
-                                               //*******************************************************************
-        //********************************************************************************
-        //FK para Artista_Banda
-        //********************************************************************************
+        public  int GenerosFK { get; set; }      //FK para Generos np SGBD(SQL) 
+        public Generos Genero { get; set; }     //FK para Generos no C#
+        
+        
+        //***********************************************************************
+        //FK para Artistas
+        //***********************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
-        [ForeignKey(nameof(ArtistaBanda))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
-        public int ArtistaBandaFK { get; set; }      //FK para Artista_Banda np SGBD(SQL)
-        public Artistas ArtistaBanda { get; set; }
+        [ForeignKey(nameof(Artista))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
+        public int ArtistasFK { get; set; }      //FK para Artistas np SGBD(SQL)
+        public Artistas Artista { get; set; }    //FK para Artistas no C#
 
 
-        //***************************************************************
+        //**********************************************************************
         //Criar a lista de Musicas a que um Album está associado
-        //***************************************************************
+        //**********************************************************************
         public ICollection<Musicas> ListaDeMusicas { get; set; }
     }
 }

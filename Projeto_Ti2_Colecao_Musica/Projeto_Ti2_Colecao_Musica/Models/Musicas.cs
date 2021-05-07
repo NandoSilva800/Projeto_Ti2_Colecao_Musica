@@ -48,21 +48,21 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         public string Compositor { get; set; }
 
         //********************************************************************************
-        //FK para Artista_Banda
+        //FK para Artistas
         //********************************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
-        [ForeignKey(nameof(ArtistaBanda))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
-        public int ArtistaBandaFK { get; set; }      //FK para Artista_Banda np SGBD(SQL)
-        public Artistas ArtistaBanda { get; set; }     //FK para Artista_Banda no C#
+        [ForeignKey(nameof(Artista))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
+        public int ArtistasFK { get; set; }      //FK para Artistas np SGBD(SQL)
+        public Artistas Artista { get; set; }     //FK para Artistas no C#
         //********************************************************************************
 
         
 
-        //***************************************************************
+        //*******************************************************************************
         //Criar a lista de Albuns a que uma musica está associada
-        //***************************************************************
+        //*******************************************************************************
         public ICollection<Albuns> ListaDeAlbuns { get; set; }
-        //***************************************************************
+        //*******************************************************************************
 
     }
 } 
