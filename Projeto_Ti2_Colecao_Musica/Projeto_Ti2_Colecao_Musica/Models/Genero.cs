@@ -8,12 +8,12 @@ namespace Projeto_Ti2_Colecao_Musica.Models
     /// <summary>
     /// Identifica os géneros de uma música
     /// </summary>
-    public class Generos
+    public class Genero
     {
         /// <summary>
-        /// Construtor da classe Generos
+        /// Construtor da classe Genero
         /// </summary>
-        public Generos()
+        public Genero()
         {
             //aceder à BD, e selecionar todos os albuns do genero
             ListaDeAlbuns = new HashSet<Album>();

@@ -11,6 +11,15 @@ namespace Projeto_Ti2_Colecao_Musica.Models
     public class Artista_Banda
     {
         /// <summary>
+        /// Construtor da classe Artista_Banda
+        /// </summary>
+        public Artista_Banda()
+        {
+            //aceder à BD, e selecionar todos os albuns do genero
+            ListaDeMusicas = new HashSet<Musica>();
+        }
+
+        /// <summary>
         /// Nome de artista ou banda
         /// </summary>
         public string Nome { get; set; }
@@ -24,5 +33,11 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         /// link da pagina de um artista ou banda
         /// </summary>
         public string url { get; set; }
+
+
+        //***************************************************************
+        //Criar a lista de Albuns a que um Genero está associada
+        //***************************************************************
+        public ICollection<Musica> ListaDeMusicas { get; set; }
     }
 }

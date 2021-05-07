@@ -12,6 +12,15 @@ namespace Projeto_Ti2_Colecao_Musica.Models
     public class Album
     {
         /// <summary>
+        /// Construtor da classe Album
+        /// </summary>
+        public Album()
+        {
+            //aceder à BD, e selecionar todos as musicas do album
+            ListaDeMusicas = new HashSet<Musica>();
+        }
+
+        /// <summary>
         /// Titulo de um album
         /// </summary>
         public string Titulo { get; set; }
@@ -44,7 +53,13 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
         public  int GeneroFK { get; set; }      //FK para Genero np SGBD(SQL)
         
-        public Generos Genero { get; set; }     //FK para Genero no C#
-        //*******************************************************************
+        public Genero Genero { get; set; }     //FK para Genero no C#
+                                               //*******************************************************************
+
+
+        //***************************************************************
+        //Criar a lista de Musicas a que um Album está associado
+        //***************************************************************
+        public ICollection<Musica> ListaDeMusicas { get; set; }
     }
 }
