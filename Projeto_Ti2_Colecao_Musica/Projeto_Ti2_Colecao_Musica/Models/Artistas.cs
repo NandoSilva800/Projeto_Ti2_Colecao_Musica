@@ -8,15 +8,15 @@ namespace Projeto_Ti2_Colecao_Musica.Models
     /// <summary>
     /// Dados de um artista ou de uma banda de música
     /// </summary>
-    public class Artista_Banda
+    public class Artistas
     {
         /// <summary>
         /// Construtor da classe Artista_Banda
         /// </summary>
-        public Artista_Banda()
+        public Artistas()
         {
-            //aceder à BD, e selecionar todos os albuns do genero
-            ListaDeMusicas = new HashSet<Musica>();
+            //aceder à BD, e selecionar todos as musicas do artista
+            ListaDeMusicas = new HashSet<Musicas>();
         }
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace Projeto_Ti2_Colecao_Musica.Models
 
 
         //***************************************************************
-        //Criar a lista de Albuns a que um Genero está associada
+        //Criar a lista de musicas a que um artista está associado
         //***************************************************************
-        public ICollection<Musica> ListaDeMusicas { get; set; }
+        public ICollection<Musicas> ListaDeMusicas { get; set; }
     }
 }

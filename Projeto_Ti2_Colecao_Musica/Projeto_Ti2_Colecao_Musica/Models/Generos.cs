@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,16 +9,22 @@ namespace Projeto_Ti2_Colecao_Musica.Models
     /// <summary>
     /// Identifica os géneros de uma música
     /// </summary>
-    public class Genero
+    public class Generos
     {
         /// <summary>
         /// Construtor da classe Genero
         /// </summary>
-        public Genero()
+        public Generos()
         {
             //aceder à BD, e selecionar todos os albuns do genero
-            ListaDeAlbuns = new HashSet<Album>();
+            ListaDeAlbuns = new HashSet<Albuns>();
         }
+
+        /// <summary>
+        /// Chave primaria 
+        /// </summary>
+        [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// nome do genero de musica
@@ -27,7 +34,7 @@ namespace Projeto_Ti2_Colecao_Musica.Models
         //***************************************************************
         //Criar a lista de Albuns a que um Genero está associada
         //***************************************************************
-        public ICollection <Album> ListaDeAlbuns{ get; set; }
+        public ICollection <Albuns> ListaDeAlbuns{ get; set; }
 
     }
 }
