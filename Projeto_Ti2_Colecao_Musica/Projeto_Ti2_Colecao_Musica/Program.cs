@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Projeto_Ti2_Colecao_Musica
+namespace Colecao_Musica
 {
     public class Program
     {

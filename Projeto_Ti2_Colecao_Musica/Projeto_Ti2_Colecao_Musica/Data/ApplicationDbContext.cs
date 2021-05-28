@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projeto_Ti2_Colecao_Musica.Data
+namespace Colecao_Musica.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

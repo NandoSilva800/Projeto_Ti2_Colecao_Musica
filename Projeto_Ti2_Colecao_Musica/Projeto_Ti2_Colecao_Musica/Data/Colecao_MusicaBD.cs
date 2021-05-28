@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Projeto_Ti2_Colecao_Musica.Models
+using Colecao_Musica.Models
 
-namespace Projeto_Ti2_Colecao_Musica.Data
+namespace Colecao_Musica.Data
 {
     /// <summary>
     /// representa a DB da colecao de musica
     /// </summary>
     public class Colecao_MusicaBD :DbContext {
+
+        public Colecao_MusicaBD(DbContextOptions<Colecao_MusicaBD> options):base(options) {}
 
         //*********************************************
         //especificar as tabelas na BD

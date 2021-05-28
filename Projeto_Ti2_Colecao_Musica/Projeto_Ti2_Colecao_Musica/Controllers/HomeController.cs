@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Projeto_Ti2_Colecao_Musica.Models;
+using Colecao_Musica.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Projeto_Ti2_Colecao_Musica.Controllers
+namespace Colecao_Musica.Controllers
 {
     public class HomeController : Controller
     {

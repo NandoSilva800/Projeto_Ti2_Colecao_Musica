@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Projeto_Ti2_Colecao_Musica.Models
+namespace Colecao_Musica.Models
 {
     /// <summary>
     /// Dados de uma musica

@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Projeto_Ti2_Colecao_Musica.Data;
+using Colecao_Musica.Data;
 using System;
 
-namespace Projeto_Ti2_Colecao_Musica.Data.Migrations
+namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]

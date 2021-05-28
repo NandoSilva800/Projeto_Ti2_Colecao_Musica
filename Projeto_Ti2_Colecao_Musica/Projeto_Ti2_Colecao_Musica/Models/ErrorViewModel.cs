@@ -1,6 +1,6 @@
 using System;
 
-namespace Projeto_Ti2_Colecao_Musica.Models
+namespace Colecao_Musica.Models
 {
     public class ErrorViewModel
     {
