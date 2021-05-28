@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Colecao_Musica.Models
+using Colecao_Musica.Models;
 
 namespace Colecao_Musica.Data
 {

@@ -30,18 +30,13 @@ namespace Colecao_Musica
 
             //configurar a aplicação(o nosso sistema) para aceder á Base de Dados
             // e de que tipo será
-          
-            
+
+
             services.AddDbContext<Colecao_MusicaBD>( //Especifica que a BD Colecao_MusicaBD deverá ser usada pelo nosso projeto
                 options => options.UseSqlServer(     // a BD será do tipo SqlServer
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddControllersWithViews();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
