@@ -13,6 +13,30 @@ namespace Colecao_Musica.Data
 
         public Colecao_MusicaBD(DbContextOptions<Colecao_MusicaBD> options):base(options) {}
 
+
+        /// <summary>
+        /// Método para assistir a criaçºao da BD que representa o modelo
+        /// </summary>
+        /// <param name="modelBuilder">opção de configuração da criação do modelo</param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // importa todo o comportamento deste método
+            //Definido na classe DbContext
+            base.OnModelCreating(modelBuilder);
+
+            //********************************************************
+
+
+            //Acrescentar novas tarefas...
+            //********************************************************
+
+            //Adicionar dados às tabelas da BD
+            //modelBuilder.Entity<Generos>().HasData(
+                // new Generos { Id =1, Designacao= "Rock"}
+                //);
+
+        }
+
         //*********************************************
         //especificar as tabelas na BD
         //*********************************************
