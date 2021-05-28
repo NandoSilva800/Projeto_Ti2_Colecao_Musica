@@ -21,7 +21,7 @@ namespace Colecao_Musica.Models
             ListaDeMusicas = new HashSet<Musicas>();
         }
         /// <summary>
-        /// Chave primaria
+        /// Chave primaria para os albuns
         /// </summary>
         [Key]
         public int Id { get; set; }

@@ -21,7 +21,7 @@ namespace Colecao_Musica.Models
         }
 
         /// <summary>
-        /// Chave primária
+        /// Chave primária para os artistas
         /// </summary>
         [Key]
         public int Id { get; set; }

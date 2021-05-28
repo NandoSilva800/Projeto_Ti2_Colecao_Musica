@@ -22,7 +22,7 @@ namespace Colecao_Musica.Models
         }
 
         /// <summary>
-        /// Chave primaria
+        /// Chave primaria para as musicas
         /// </summary>
         [Key]
         public int Id { get; set; }

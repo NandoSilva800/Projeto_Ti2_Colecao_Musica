@@ -104,13 +104,13 @@ namespace Colecao_Musica.Migrations
                         column: x => x.ListaDeAlbunsId,
                         principalTable: "Albuns",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AlbunsMusicas_Musicas_ListaDeMusicasId",
                         column: x => x.ListaDeMusicasId,
                         principalTable: "Musicas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
