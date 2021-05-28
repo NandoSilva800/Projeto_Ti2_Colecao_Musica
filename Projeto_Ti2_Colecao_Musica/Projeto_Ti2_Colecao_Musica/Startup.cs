@@ -32,8 +32,8 @@ namespace Colecao_Musica
             // e de que tipo será
           
             
-            services.AddDbContext<Colecao_MusicaBD>( //Especifica
-                options => options.UseSqlServer(
+            services.AddDbContext<Colecao_MusicaBD>( //Especifica que a BD Colecao_MusicaBD deverá ser usada pelo nosso projeto
+                options => options.UseSqlServer(     // a BD será do tipo SqlServer
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();

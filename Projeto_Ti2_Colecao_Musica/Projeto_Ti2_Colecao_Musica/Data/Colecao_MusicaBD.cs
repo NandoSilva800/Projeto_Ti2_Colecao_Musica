@@ -12,6 +12,9 @@ namespace Colecao_Musica.Data
     /// </summary>
     public class Colecao_MusicaBD :DbContext {
 
+        //onde está guardada a BD --> appsettings.json
+        // tipo da BD ---->    startup.cs
+
         public Colecao_MusicaBD(DbContextOptions<Colecao_MusicaBD> options):base(options) {}
 
         //*********************************************
