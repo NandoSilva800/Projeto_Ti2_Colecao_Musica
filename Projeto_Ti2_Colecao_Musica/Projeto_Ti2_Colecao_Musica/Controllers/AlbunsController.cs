@@ -16,7 +16,7 @@ namespace Colecao_Musica.Controllers
     /// Controller para efetuar a gestão de Albuns de musica
     /// </summary>
 
-    [Authorize]
+    ///[Authorize]
 
     public class AlbunsController : Controller
     {
@@ -30,8 +30,9 @@ namespace Colecao_Musica.Controllers
         // GET: Albuns
         public async Task<IActionResult> Index()
         {
-            var colecao_MusicaBD = _context.Albuns.Include(a => a.Artista).Include(a => a.Genero);
-            return View(await colecao_MusicaBD.ToListAsync());
+
+            //var colecao_MusicaBD = _context.Albuns.Include(a => a.Artista).Include(a => a.Genero);
+            return View(await _context.Albuns.ToListAsync());
         }
 
         // GET: Albuns/Details/5
@@ -43,9 +44,7 @@ namespace Colecao_Musica.Controllers
             }
 
             var albuns = await _context.Albuns
-                .Include(a => a.Artista)
-                .Include(a => a.Genero)
-                .FirstOrDefaultAsync(m => m.Id == id);
+               .FirstOrDefaultAsync(m => m.Id == id);
             if (albuns == null)
             {
                 return NotFound();
@@ -57,8 +56,6 @@ namespace Colecao_Musica.Controllers
         // GET: Albuns/Create
         public IActionResult Create()
         {
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id");
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Id");
             return View();
         }
 
