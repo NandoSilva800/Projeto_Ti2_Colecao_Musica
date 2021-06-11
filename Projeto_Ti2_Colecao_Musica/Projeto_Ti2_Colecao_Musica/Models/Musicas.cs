@@ -30,25 +30,28 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Titulo de uma musica
         /// </summary>
-        [Required]
+        [Required(ErrorMessage ="Preenchimento obrigatório")]
+        [StringLength(25, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Duração de uma musica
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório")]
+        [StringLength(15, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
         public string Duracao { get; set; }
 
         /// <summary>
         /// Ano em que foi editada uma musica
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório")]
+        [StringLength(4, MinimumLength = 4 , ErrorMessage = "O {0} deve conter {1} caracteres.")]
         public string Ano { get; set; }
 
         /// <summary>
         /// Nome do compositor de uma musica
         /// </summary>
-        [Required]
+        [StringLength(25, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Compositor { get; set; }
 
         //********************************************************************************

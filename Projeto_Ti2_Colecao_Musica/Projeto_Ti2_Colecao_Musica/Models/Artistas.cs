@@ -29,19 +29,22 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Nome de artista ou banda
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório")]
+        [StringLength (30, ErrorMessage ="O {0} do artista/banda não deve ser maior que {1} caracteres.")]
         public string Nome { get; set; }
 
         /// <summary>
         /// Nacionalidade de um artista
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório")]
+        [StringLength(15, ErrorMessage = "A {0} do artista/banda não deve ter mais que {1} caracteres.")]
         public string Nacionalidade { get; set; }
 
         /// <summary>
         /// link da pagina de um artista
         /// </summary>
-        public string url { get; set; }
+        [StringLength(40,MinimumLength = 12, ErrorMessage = "O {0} do artista/banda deve estar compreendido entre {2} e {1} caracteres.")]
+        public string Url { get; set; }
 
 
         //***************************************************************

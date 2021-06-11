@@ -42,7 +42,7 @@ namespace Colecao_Musica.Data
             );
             
             modelBuilder.Entity<Artistas>().HasData(
-               new Artistas { Id = 1, Nome = "Eagles", Nacionalidade = "Norte Americana", url = "https://eagles.com/" }
+               new Artistas { Id = 1, Nome = "Eagles", Nacionalidade = "Norte Americana", Url = "https://eagles.com/" }
             );
 
             modelBuilder.Entity<Albuns>().HasData(
