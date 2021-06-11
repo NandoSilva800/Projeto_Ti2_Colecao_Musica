@@ -45,7 +45,7 @@ namespace Colecao_Musica.Models
         /// Numero total de faixas de um album
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(2, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(2, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public int NrFaixas { get; set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Nome da editora que editou o album
         /// </summary>
-        [StringLength(15, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(15, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
         public string Editora { get; set; }
 
         /// <summary>

@@ -43,7 +43,9 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// link da pagina de um artista
         /// </summary>
-        [StringLength(40,MinimumLength = 12, ErrorMessage = "O {0} do artista/banda deve estar compreendido entre {2} e {1} caracteres.")]
+        [StringLength(70,MinimumLength = 12, ErrorMessage = "O {0} do artista/banda deve estar compreendido entre {2} e {1} caracteres.")]
+        [RegularExpression("https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)", ErrorMessage = "Prencha com um link que inicie com http://www.")]
+        // [Url(ErrorMessage = "Preencha um link válido")]
         public string Url { get; set; }
 
 
