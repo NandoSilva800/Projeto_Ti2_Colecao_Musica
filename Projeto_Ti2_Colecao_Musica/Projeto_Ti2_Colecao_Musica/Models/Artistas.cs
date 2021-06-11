@@ -29,11 +29,13 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Nome de artista ou banda
         /// </summary>
+        [Required]
         public string Nome { get; set; }
 
         /// <summary>
         /// Nacionalidade de um artista
         /// </summary>
+        [Required]
         public string Nacionalidade { get; set; }
 
         /// <summary>

@@ -29,21 +29,25 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Titulo de um album
         /// </summary>
+        [Required]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Duração total de um album
         /// </summary>
+        [Required]
         public string Duracao { get; set; }
 
         /// <summary>
         /// Numero total de faixas de um album
         /// </summary>
+        [Required]
         public int NrFaixas { get; set; }
 
         /// <summary>
         /// Ano em que foi editado o album
         /// </summary>
+        [Required]
         public string Ano { get; set; }
 
         /// <summary>

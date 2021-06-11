@@ -30,21 +30,25 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Titulo de uma musica
         /// </summary>
+        [Required]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Duração de uma musica
         /// </summary>
+        [Required]
         public string Duracao { get; set; }
 
         /// <summary>
         /// Ano em que foi editada uma musica
         /// </summary>
+        [Required]
         public string Ano { get; set; }
 
         /// <summary>
         /// Nome do compositor de uma musica
         /// </summary>
+        [Required]
         public string Compositor { get; set; }
 
         //********************************************************************************
