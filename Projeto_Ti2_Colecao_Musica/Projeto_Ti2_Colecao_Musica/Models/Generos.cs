@@ -37,4 +37,4 @@ namespace Colecao_Musica.Models
         public ICollection <Albuns> ListaDeAlbuns{ get; set; }
 
     }
-}
+}// Fim da classe Géneros

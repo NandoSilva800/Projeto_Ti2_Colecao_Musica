@@ -18,6 +18,7 @@ namespace Colecao_Musica.Models
         public Musicas()
         {
             //aceder à BD, e selecionar todos os albuns que contém a musica
+            //Inicialização da lista de albuns
             ListaDeAlbuns = new HashSet<Albuns>();
         }
 
@@ -39,6 +40,7 @@ namespace Colecao_Musica.Models
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
         [StringLength(15, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        [Display(Name ="Duração")]
         public string Duracao { get; set; }
 
         /// <summary>
@@ -72,4 +74,4 @@ namespace Colecao_Musica.Models
         //*******************************************************************************
 
     }
-} 
+} //Fim da classe Musicas

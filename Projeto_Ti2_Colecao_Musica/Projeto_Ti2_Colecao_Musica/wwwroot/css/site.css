@@ -62,7 +62,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-image: url(../imageBack.jpg);
-    background-size:cover;
+    background-size: cover;
     
 }
 .footer {

@@ -31,6 +31,7 @@ namespace Colecao_Musica.Models
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
         [StringLength (30, ErrorMessage ="O {0} do artista/banda não deve ser maior que {1} caracteres.")]
+        [RegularExpression("[A-Za-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð '-]+", ErrorMessage = "O {0} só aceita letras...")]
         public string Nome { get; set; }
 
         /// <summary>
@@ -43,10 +44,14 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// link da pagina de um artista
         /// </summary>
-        [StringLength(70,MinimumLength = 12, ErrorMessage = "O {0} do artista/banda deve estar compreendido entre {2} e {1} caracteres.")]
-        [RegularExpression("https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)", ErrorMessage = "Prencha com um link que inicie com http://www.")]
+        //[StringLength(70,MinimumLength = 12, ErrorMessage = "O {0} do artista/banda deve estar compreendido entre {2} e {1} caracteres.")]
+       // [RegularExpression("https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)", ErrorMessage = "Prencha com um link que inicie com http://www.")]
         // [Url(ErrorMessage = "Preencha um link válido")]
+        [Display(Name ="Página Web do Artista")]
         public string Url { get; set; }
+
+
+
 
 
         //***************************************************************
@@ -54,4 +59,4 @@ namespace Colecao_Musica.Models
         //***************************************************************
         public ICollection<Musicas> ListaDeMusicas { get; set; }
     }
-}
+} //Fim classe Artistas
