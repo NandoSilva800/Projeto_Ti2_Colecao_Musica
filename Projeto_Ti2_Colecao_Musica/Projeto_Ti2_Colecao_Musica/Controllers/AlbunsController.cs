@@ -22,7 +22,7 @@ namespace Colecao_Musica.Controllers
     public class AlbunsController : Controller
     {
         private readonly Colecao_MusicaBD _context;
-        private IEnumerable listaDeAlbuns;
+        
 
         public AlbunsController(Colecao_MusicaBD context)
         {
@@ -33,8 +33,8 @@ namespace Colecao_Musica.Controllers
         public async Task<IActionResult> Index()
         {
 
-            var colecao_MusicaBD = _context.Albuns.Include(a => a.Artista).Include(a => a.Genero);
-            return View(await _context.Albuns.ToListAsync());
+            var colecaoAlbuns = await _context.Albuns.Include(a => a.Artista).Include(a => a.Genero).ToListAsync();
+            return View(colecaoAlbuns);
         }
 
         // GET: Albuns/Details/5
@@ -46,18 +46,22 @@ namespace Colecao_Musica.Controllers
             }
 
             var albuns = await _context.Albuns
+                .Include(a => a.Artista)
+                .Include(a => a.Genero)
                .FirstOrDefaultAsync(m => m.Id == id);
             if (albuns == null)
             {
                 return NotFound();
             }
-
             return View(albuns);
         }
 
         // GET: Albuns/Create
         public IActionResult Create()
         {
+            ViewData["ArtistasFK"] = new SelectList( _context.Artistas.OrderBy(a=>a.Nome), "Id", "Nome");
+            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
+
             return View();
         }
 
@@ -66,18 +70,18 @@ namespace Colecao_Musica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK,ArtistasFK")] Albuns albuns)
+        public async Task<IActionResult> Create( [Bind("Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK,ArtistasFK")]Albuns album)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(albuns);
+                _context.Add(album);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasFK"] = new SelectList(listaDeAlbuns, "Id", "Nome", albuns.ArtistasFK);
-            //ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", albuns.ArtistasFK);
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", albuns.GenerosFK);
-            return View(albuns);
+
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas.OrderBy(a=>a.Nome), "Id", "Nome", album.ArtistasFK);
+            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+            return View(album);
         }
 
         // GET: Albuns/Edit/5
@@ -103,7 +107,7 @@ namespace Colecao_Musica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK,ArtistasFK")] Albuns albuns)
+        public async Task<IActionResult> Edit(int id, [Bind("Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK,ArtistasFK")] Albuns albuns)
         {
             if (id != albuns.Id)
             {
@@ -131,7 +135,6 @@ namespace Colecao_Musica.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", albuns.ArtistasFK);
-            ViewData["ArtistasFK"] = new SelectList(listaDeAlbuns, "Id", "Nome");
             ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", albuns.GenerosFK);
             return View(albuns);
         }

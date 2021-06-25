@@ -20,6 +20,7 @@ namespace Colecao_Musica.Models
             //aceder à BD, e selecionar todos as musicas do album
             ListaDeMusicas = new HashSet<Musicas>();
         }
+
         /// <summary>
         /// Chave primaria para os albuns
         /// </summary>
@@ -29,7 +30,6 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Titulo de um album
         /// </summary>
-
         [Required(ErrorMessage = "Preenchimento obrigatório")]
         [StringLength(40, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Titulo { get; set; }
@@ -39,15 +39,15 @@ namespace Colecao_Musica.Models
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
         //[StringLength(6, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
-        [Display(Name ="Duração minutos")]
+        [Display(Name = "Duração minutos")]
         public string Duracao { get; set; }
 
         /// <summary>
         /// Numero total de faixas de um album
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(2, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
-        [Display(Name ="Total de faixas")] 
+        [Range(1, 99, ErrorMessage = "O valor a especificar deve estar compreendido entre 1 e 99.")]
+        [Display(Name = "Total de faixas")]
         public int NrFaixas { get; set; }
 
         /// <summary>
@@ -75,15 +75,17 @@ namespace Colecao_Musica.Models
         //************************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
         [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
-        public  int GenerosFK { get; set; }      //FK para Generos np SGBD(SQL) 
+        [Required(ErrorMessage = "Seleção obrigatória")]
+        public int GenerosFK { get; set; }      //FK para Generos np SGBD(SQL) 
         public Generos Genero { get; set; }     //FK para Generos no C#
-        
-        
+
+
         //***********************************************************************
         //FK para Artistas
         //***********************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
         [ForeignKey(nameof(Artista))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
+        [Required(ErrorMessage = "Seleção obrigatória")]
         public int ArtistasFK { get; set; }      //FK para Artistas np SGBD(SQL)
         public Artistas Artista { get; set; }    //FK para Artistas no C#
 
