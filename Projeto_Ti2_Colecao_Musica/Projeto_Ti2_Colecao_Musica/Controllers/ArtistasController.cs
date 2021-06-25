@@ -54,7 +54,7 @@ namespace Colecao_Musica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Nacionalidade,url")] Artistas artistas)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Nacionalidade,Url")] Artistas artistas)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Colecao_Musica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Nacionalidade,url")] Artistas artistas)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Nacionalidade,Url")] Artistas artistas)
         {
             if (id != artistas.Id)
             {

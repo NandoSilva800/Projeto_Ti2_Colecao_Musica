@@ -50,6 +50,15 @@ namespace Colecao_Musica.Models
         [Display(Name ="Página Web do Artista")]
         public string Url { get; set; }
 
+        //###########################################################################
+        // FK para a tabela de Autenticação
+        //###########################################################################
+        /// <summary>
+        /// Chave de ligação entre a Autenticação e os Artistas
+        /// Consegue-se, por exemplo, filtrar os dados dos Artistas qd se autenticam
+        /// </summary>
+        public string UserNameId { get; set; }
+        //###########################################################################
 
 
 

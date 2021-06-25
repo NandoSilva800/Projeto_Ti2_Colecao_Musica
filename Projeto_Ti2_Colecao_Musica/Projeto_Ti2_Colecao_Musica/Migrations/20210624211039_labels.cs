@@ -2,7 +2,7 @@
 
 namespace Colecao_Musica.Migrations
 {
-    public partial class AlteracaoDados : Migration
+    public partial class labels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,16 +55,6 @@ namespace Colecao_Musica.Migrations
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
-                name: "Url",
-                table: "Artistas",
-                type: "nvarchar(70)",
-                maxLength: 70,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
                 name: "Nome",
                 table: "Artistas",
                 type: "nvarchar(30)",
@@ -85,6 +75,12 @@ namespace Colecao_Musica.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",
                 oldNullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "UserNameId",
+                table: "Artistas",
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Titulo",
@@ -110,8 +106,7 @@ namespace Colecao_Musica.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Duracao",
                 table: "Albuns",
-                type: "nvarchar(4)",
-                maxLength: 4,
+                type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "",
                 oldClrType: typeof(string),
@@ -132,6 +127,10 @@ namespace Colecao_Musica.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "UserNameId",
+                table: "Artistas");
+
             migrationBuilder.RenameColumn(
                 name: "Url",
                 table: "Artistas",
@@ -173,16 +172,6 @@ namespace Colecao_Musica.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(4)",
                 oldMaxLength: 4);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "url",
-                table: "Artistas",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(70)",
-                oldMaxLength: 70,
-                oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Nome",
@@ -227,8 +216,7 @@ namespace Colecao_Musica.Migrations
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(4)",
-                oldMaxLength: 4);
+                oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Ano",

@@ -51,7 +51,7 @@ namespace Colecao_Musica.Controllers
         // GET: Musicas/Create
         public IActionResult Create()
         {
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id");
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace Colecao_Musica.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", musicas.ArtistasFK);
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", musicas.ArtistasFK);
             return View(musicas);
         }
 
@@ -85,7 +85,7 @@ namespace Colecao_Musica.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", musicas.ArtistasFK);
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", musicas.ArtistasFK);
             return View(musicas);
         }
 
@@ -121,7 +121,7 @@ namespace Colecao_Musica.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", musicas.ArtistasFK);
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", musicas.ArtistasFK);
             return View(musicas);
         }
 

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>Musicas</h4>
 <hr />
@@ -34,8 +34,10 @@
                 <span asp-validation-for="Compositor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ArtistasFK" class="control-label"></label>
-                <select asp-for="ArtistasFK" class="form-control" asp-items="ViewBag.ArtistasFK"></select>
+                <label asp-for="Artista" class="control-label"></label>
+                <select asp-for="ArtistasFK" class="form-control" asp-items="ViewBag.ArtistasFK">
+                    <option value="">Selecione um Artista, por favor.</option>
+                </select>
                 <span asp-validation-for="ArtistasFK" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Colecao_Musica.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    [Migration("20210611161445_alteracaoDados")]
-    partial class AlteracaoDados
+    [Migration("20210624233207_dados")]
+    partial class dados
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,8 +55,7 @@ namespace Colecao_Musica.Migrations
 
                     b.Property<string>("Duracao")
                         .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Editora")
                         .HasMaxLength(15)
@@ -115,8 +114,10 @@ namespace Colecao_Musica.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Url")
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserNameId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

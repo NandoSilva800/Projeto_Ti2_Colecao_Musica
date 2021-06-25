@@ -46,7 +46,7 @@ namespace Colecao_Musica.Data
             );
 
             modelBuilder.Entity<Albuns>().HasData(
-               new Albuns { Id = 1, Titulo = "Hotel california", Duracao = "43 Minutos", Ano = "1976", Editora = "Asylom Records", NrFaixas = 9, Cover ="HotelCaliforniaAlbumCover.png", GenerosFK=1, ArtistasFK=1 }
+               new Albuns { Id = 1, Titulo = "Hotel california", Duracao = "43", Ano = "1976", Editora = "Asylom Records", NrFaixas = 9, Cover ="HotelCaliforniaAlbumCover.png", GenerosFK = 1, ArtistasFK = 1, }
             );
 
           

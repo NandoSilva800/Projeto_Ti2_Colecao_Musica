@@ -3,14 +3,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class Colecao_MusicaBDModelSnapshot : ModelSnapshot
+    [Migration("20210624211039_labels")]
+    partial class labels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

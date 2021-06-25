@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Colecao_Musica.Data;
 using Colecao_Musica.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections;
 
 namespace Colecao_Musica.Controllers
 {
@@ -21,6 +22,7 @@ namespace Colecao_Musica.Controllers
     public class AlbunsController : Controller
     {
         private readonly Colecao_MusicaBD _context;
+        private IEnumerable listaDeAlbuns;
 
         public AlbunsController(Colecao_MusicaBD context)
         {
@@ -31,7 +33,7 @@ namespace Colecao_Musica.Controllers
         public async Task<IActionResult> Index()
         {
 
-            //var colecao_MusicaBD = _context.Albuns.Include(a => a.Artista).Include(a => a.Genero);
+            var colecao_MusicaBD = _context.Albuns.Include(a => a.Artista).Include(a => a.Genero);
             return View(await _context.Albuns.ToListAsync());
         }
 
@@ -72,8 +74,9 @@ namespace Colecao_Musica.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", albuns.ArtistasFK);
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Id", albuns.GenerosFK);
+            ViewData["ArtistasFK"] = new SelectList(listaDeAlbuns, "Id", "Nome", albuns.ArtistasFK);
+            //ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", albuns.ArtistasFK);
+            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", albuns.GenerosFK);
             return View(albuns);
         }
 
@@ -90,8 +93,8 @@ namespace Colecao_Musica.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", albuns.ArtistasFK);
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Id", albuns.GenerosFK);
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", albuns.ArtistasFK);
+            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", albuns.GenerosFK);
             return View(albuns);
         }
 
@@ -127,8 +130,9 @@ namespace Colecao_Musica.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Id", albuns.ArtistasFK);
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Id", albuns.GenerosFK);
+            ViewData["ArtistasFK"] = new SelectList(_context.Artistas, "Id", "Nome", albuns.ArtistasFK);
+            ViewData["ArtistasFK"] = new SelectList(listaDeAlbuns, "Id", "Nome");
+            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", albuns.GenerosFK);
             return View(albuns);
         }
 

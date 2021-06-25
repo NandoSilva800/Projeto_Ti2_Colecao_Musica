@@ -31,14 +31,15 @@ namespace Colecao_Musica.Models
         /// </summary>
 
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(25, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(40, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Duração total de um album
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(4, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        //[StringLength(6, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        [Display(Name ="Duração minutos")]
         public string Duracao { get; set; }
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace Colecao_Musica.Models
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
         [StringLength(2, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
+        [Display(Name ="Total de faixas")] 
         public int NrFaixas { get; set; }
 
         /// <summary>
@@ -58,7 +60,7 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Nome da editora que editou o album
         /// </summary>
-        [StringLength(15, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(20, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
         public string Editora { get; set; }
 
         /// <summary>
