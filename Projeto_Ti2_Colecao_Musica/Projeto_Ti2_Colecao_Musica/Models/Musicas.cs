@@ -38,16 +38,18 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Duração de uma musica
         /// </summary>
-        [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(15, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
-        [Display(Name ="Duração")]
+        [Required(ErrorMessage = "Preenchimento obrigatório no formato 00 minutos")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Insira a duração do album em minutos")]
+        [StringLength(2, MinimumLength = 2)]
+        [Display(Name = "Duração minutos")]
         public string Duracao { get; set; }
 
         /// <summary>
         /// Ano em que foi editada uma musica
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [StringLength(4, MinimumLength = 4 , ErrorMessage = "O {0} deve conter {1} caracteres.")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Insira o ano do album")]
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "O {0} deve conter {1} caracteres.")]
         public string Ano { get; set; }
 
         /// <summary>

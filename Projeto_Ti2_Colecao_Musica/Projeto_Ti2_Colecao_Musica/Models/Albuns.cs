@@ -37,8 +37,9 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Duração total de um album
         /// </summary>
-        [Required(ErrorMessage = "Preenchimento obrigatório")]
-        //[StringLength(6, ErrorMessage = "A {0} não deve ter mais que {1} caracteres.")]
+        [Required(ErrorMessage = "Preenchimento obrigatório no formato 00 minutos")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Insira a duração do album em minutos")]
+        [StringLength(2, MinimumLength = 2)]
         [Display(Name = "Duração minutos")]
         public string Duracao { get; set; }
 
@@ -46,14 +47,16 @@ namespace Colecao_Musica.Models
         /// Numero total de faixas de um album
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        [Range(1, 99, ErrorMessage = "O valor a especificar deve estar compreendido entre 1 e 99.")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Insira o numero de faixas do album")]
+        [StringLength(2, MinimumLength = 2)]
         [Display(Name = "Total de faixas")]
-        public int NrFaixas { get; set; }
+        public string NrFaixas { get; set; }
 
         /// <summary>
         /// Ano em que foi editado o album
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Insira o ano do album" )]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "O {0} deve conter {1} caracteres.")]
         public string Ano { get; set; }
 
